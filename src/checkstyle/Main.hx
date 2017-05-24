@@ -1,5 +1,6 @@
 package checkstyle;
 
+import checkstyle.reporter.XMLIDEAReporter;
 import checkstyle.ChecksInfo;
 import checkstyle.Config;
 import checkstyle.CheckMessage.SeverityLevel;
@@ -270,6 +271,7 @@ class Main {
 		var checksUsed = getUsedCheckCount();
 		return switch (REPORT_TYPE) {
 			case "xml": new XMLReporter(numFiles, totalChecks, checksUsed, XML_PATH, STYLE, NO_STYLE);
+			case "xmli": new XMLIDEAReporter(numFiles, totalChecks, checksUsed, XML_PATH, STYLE, NO_STYLE);
 			case "json": new JSONReporter(numFiles, totalChecks, checksUsed, JSON_PATH, NO_STYLE);
 			case "text": new TextReporter(numFiles, totalChecks, checksUsed, TEXT_PATH, NO_STYLE);
 			case "codeclimate": new CodeClimateReporter(numFiles, totalChecks, checksUsed, null, NO_STYLE);

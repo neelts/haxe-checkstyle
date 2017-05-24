@@ -44,6 +44,23 @@ haxelib install checkstyle
 haxelib run checkstyle -s src
 ```
 
+### Generate for viewing in IntelliJ IDEA offline inspection results
+
+```
+haxelib run checkstyle -s src -c checkstyle.json -p SpellCheckingInspection.xml -r xmli
+```
+
+```
+:: .bat example:
+
+set SAVESTAMP=%DATE:/=-%@%TIME::=-%
+set SAVESTAMP=%SAVESTAMP: =%
+set SAVESTAMP=%SAVESTAMP:,=.%
+start "" haxelib run checkstyle -s src -c checkstyle.json -p reports/%SAVESTAMP%/SpellCheckingInspection.xml -r xmli
+
+:: then open it with Analyze -> View Offline Inspection Results...
+```
+
 ### Reference
 
 [More information and reference](http://haxecheckstyle.github.io/docs).
